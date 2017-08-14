@@ -30,9 +30,7 @@ class UserManager(models.Manager):
 
     def regValidate(self, request):
         errors = []
-        # hire_date = datetime.strptime(request.POST['hire_date'], '%Y-%m-%d')
 
-        # if User.objects.filter(user_name=request.POST['user_name'].strip().lower()):
         if User.objects.filter(user_name=request.POST['user_name']):
             errors.append("A user with that User Name already exists!  Please Log In.")
 
@@ -67,17 +65,14 @@ class UserManager(models.Manager):
         print pw_hash
 
         #Create New User once the PW is hashed
-        # strp_hire_date = datetime.strptime(request.POST['hire_date'], '%Y-%m-%d')
         user = self.create(first_name=request.POST['first_name'], user_name=request.POST['user_name'], pw_hash=pw_hash)
         print "created a user, at last"
         return (True, user)
 
 class User(models.Model):
-    # item = models.ForeignKey(Item)
     first_name = models.CharField(max_length=50)
     user_name = models.CharField(max_length=50)
     pw_hash = models.CharField(max_length=256)
-    # hire_date = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()

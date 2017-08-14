@@ -1,4 +1,4 @@
-"""blackbelt1 URL Configuration
+"""travBuddy URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -20,5 +20,4 @@ urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     url(r'^', include('apps.login_reg.urls', namespace='user_con')),
     url(r'^travels/', include('apps.travels.urls', namespace='travels')),
-    # url(r'^wishlist/', include('apps.wishlist.urls', namespace='wishlist')),
 ]

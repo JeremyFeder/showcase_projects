@@ -31,9 +31,3 @@ li {
   display: block;
   margin-bottom: 10px;
 }
-
-.ninja, a {
-  background-color: gold;
-  font-size: 14px;
-  width: 500px;
-}
