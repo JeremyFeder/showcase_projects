@@ -1,5 +1,5 @@
 {
-  "name": "modularized_mongoose_dashboard",
+  "name": "snakes",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -16,5 +16,5 @@
     "mongoose": "^4.8.5"
   },
   "devDependencies": {},
-  "description": "Modularized Mongoose Dashboard project ('SNAKES!')"
+  "description": "Modularized Mongoose Dashboard project-- ('SNAKES!')"
 }
