@@ -1,9 +1,9 @@
 {
   "name": "meanwalljf",
-  "description": "",
+  "description": "pseudo-Facebook message board webapp",
   "main": "server.js",
   "authors": [
-    "Jeremy Feder <J.Psycle@gmail.com>"
+    "Jeremy Feder jeremy@jeremyfeder.com>"
   ],
   "license": "ISC",
   "homepage": "",
