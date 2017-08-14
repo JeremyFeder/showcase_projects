@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Item details</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'travels/css/styles.css' %}">
+  </head>
+  <body>
+    <h2>Destination: {{ item_name }}</h2>
+
+        <p>Planned by: {{item_by}}</p>
+        <p>Description: {{item_de}}</p>
+        <p>Travel Date From: {{item_st}}</p>
+        <p>Travel Date To: {{item_en}}</p>
+
+    <h4>Travelers who added this Destination to their Travel Plan</h4>
+    {% for user in users %}
+      <p>{{ user.user_name }}</p>
+    {% empty %}
+      <p>--No One has added this Destination to their Travel Plan Yet!--</p>
+    {% endfor %}
+    <a href="/travels/">Back</a>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+
+<h1>Mean Wall Portal</h1>
+
+<ul ng-if='errors'>
+  <li class='login' ng-repeat='error in errors track by $index' ng-bind='error.errorMessage' ng-if='error.errorType==="login"'></li>
+</ul>
+
+<form ng-submit='login()'>
+  <h2>Login</h2>
+  <span><p>Not Registered yet?  Please Register below!</p></span>
+  Username: <input type="text" name="username" ng-model='user.username' placeholder='username' ><br>
+  Password: <input type="password" name="password" ng-model='user.password' placeholder='Password' ><br>
+  <button type="submit" name="button">Login</button>
+</form>
+
+<hr>
+
+<ul ng-if='errors'>
+  <li class='registration' ng-repeat='error in errors track by $index' ng-bind='error.errorMessage' ng-if='error.errorType==="registration"'></li>
+</ul>
+
+<form ng-submit='register()'>
+  <h2>Register</h2>
+  Username: <input type="text" name="username" ng-model='newUser.username' placeholder='username' ><br>
+  Password: <input type="password" name="password" ng-model='newUser.password' placeholder='Password' ><br>
+  Confirm Password: <input type="password" name="confirm_password" ng-model='passwordConf' placeholder='Confirm Password' ><br>
+  First Name: <input type="text" name="first_name" ng-model='newUser.name.first' placeholder='First Name' ><br>
+  Last Name: <input type="text" name="last_name" ng-model='newUser.name.last' placeholder='Last Name' ><br>
+  <button type="submit" name="button">Register</button>
+</form>

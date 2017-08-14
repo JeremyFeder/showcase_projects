@@ -1,0 +1,39 @@
+<div>
+  <h1>MEAN Wall</h1>
+  <span>Welcome {{userName}}</span>
+  <button type="button" name="button" ng-click='logout()'>Logout</button>
+</div>
+
+<form ng-submit='addMessage()'>
+  <p><label for="message">Post a message:</label></p>
+  <p><textarea name="message" ng-model='newMessage'></textarea></p>
+  <button type="submit" name="button">Post a message</button>
+</form>
+
+<hr>
+
+<ul ng-init='index()' ng-if='messages'>
+  <li ng-repeat="message in messages | orderBy:'message.createdAt':true">
+    <p>Author: {{message._user.name.first}} {{message._user.name.last}}</p>
+    <p>Message: {{message.message}}</p>
+    <p>Created: {{message.createdAt}}</p>
+    <!-- <form ng-submit='deleteMessage()'>
+      <button type="submit" name="button">Delete Message</button>
+    </form> -->
+    <ul ng-if='message._comments.length > 0' >
+      <li ng-repeat="comment in message._comments">
+        <p>Commentor: {{comment._user.name.first}}</p>
+        <p>Comment: {{comment.comment}}</p>
+        <p>Created: {{comment.createdAt}}</p>
+        <form ng-submit='deleteComment(comment._id, message._id)'>
+          <button type="submit" name="button">Delete Comment</button>
+        </form>
+      </li>
+    </ul>
+    <form ng-submit='addComment(message._id)'>
+      <p><label for="comment">Post a Comment</label></p>
+      <p><textarea name="comment" ng-model='message.newComment'></textarea></p>
+      <button type="submit" name="button">Post a Comment</button>
+    </form>
+  </li>
+</ul>

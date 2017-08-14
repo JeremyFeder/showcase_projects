@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mongoose(Snakes) Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Snakes!</h1>
+    <a href="snakes/new">Enter(create) a new Snake</a><br><br>
+
+    <!-- SHOW SNAKES -->
+
+    <% for(x in snakes) { %>
+      <div class="snake">
+        <p>Name: <span><%= snakes[x].name %></span> <a href="snakes/<%= snakes[x]._id %>">Info</a>
+          <a href="snakes/edit/<%= snakes[x]._id %>">Edit snake</a>
+          <form action="snakes/destroy/<%= snakes[x]._id %>" method="post">
+            <input type="submit" value="Delete">
+          </form>
+        </p>
+      </div>
+    <% } %>
+  </body>
+</html>

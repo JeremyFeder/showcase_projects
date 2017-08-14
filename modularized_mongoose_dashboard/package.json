@@ -1,0 +1,20 @@
+{
+  "name": "modularized_mongoose_dashboard",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "JMF",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.0",
+    "mongoose": "^4.8.5"
+  },
+  "devDependencies": {},
+  "description": "Modularized Mongoose Dashboard project ('SNAKES!')"
+}

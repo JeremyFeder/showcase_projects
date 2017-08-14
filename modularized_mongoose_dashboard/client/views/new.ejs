@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New Snake</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Create a new snake</h1>
+    <form action="/snakes" method="post">
+      Name: <input type="text" name="name" placeholder="Cobra">
+      Length(in feet): <input type="number" name="length">
+      Venomous?:
+      <select name="venomous">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+      <input type="submit" value="Add Snake">
+    </form><br><br>
+    <a href="/">Cancel</a>
+  </body>
+</html>

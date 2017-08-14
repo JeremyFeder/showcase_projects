@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Travel Buddy</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'travels/css/main.css' %}">
+  </head>
+  <body>
+    <h1>Hello {{request.session.user.user_name}}!   You are now logged in.</h1>
+    <a href="{% url 'user_con:logout' %}">Logout</a>
+    <a href="/travels/new">Create a Travel Plan!</a>
+    <h3>Your Trip Schedules</h3>
+    {% if my_items %}
+      <table>
+        <thead>
+          <tr>
+            <th>Destination</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th>Plan</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in my_items %}
+          <tr>
+            <td><a href="/travels/{{item.id}}/">{{item.dest}}</a></td>
+            <td>{{item.trav_start}}</td>
+            <td>{{item.trav_end}}</td>
+            <td>{{item.plan}}</td>
+            <!-- <td>
+              <a href="{%  url 'travels:remove' item.id %}" value="remove">Remove Item</a>
+              {% if request.session.user.user_name == item.addby %}
+              <form action="/travels/{{item.id}}/destroy/" method='post' class='delete'>
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+              </form>
+              {% endif %}
+            </td> -->
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Your Travel Plan is currently empty.  You can either Create your own travel plan or Join a Travel Plan from the other users' plans in the list below!</p>
+    {% endif %}
+
+    <h3>Other Users' Travel Plans</h3>
+    {% if other_items %}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Destination</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th>Do You Want To Join?</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in other_items %}
+            <tr>
+              <td>{{item.addby}}</td>
+              <td><a href="/travels/{{item.id}}/">{{item.dest}}</a></td>
+              <td>{{item.trav_start}}</td>
+              <td>{{item.trav_end}}</td>
+              <td>
+                <a class="button" href="{%  url 'travels:add' item.id %}">Join!</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No Travel Plans have been added here yet.</p>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,11 @@
+h2 {
+  color: blue;
+}
+
+input, button {
+  margin-bottom: 10px;
+}
+
+span {
+  font-style: italic;
+}
